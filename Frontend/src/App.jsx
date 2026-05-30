@@ -15,7 +15,7 @@ function App() {
       setLoading(true);
 
       const response = await axios.post(
-        "hhttps://websitescrapper-ekio.onrender.com/enrich",
+        "https://websitescrapper-ekio.onrender.com/enrich",
         {
           website_name: websiteName,
           url: url,
