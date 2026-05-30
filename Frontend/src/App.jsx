@@ -15,7 +15,7 @@ function App() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://127.0.0.1:8000/enrich",
+        "hhttps://websitescrapper-ekio.onrender.com/enrich",
         {
           website_name: websiteName,
           url: url,
@@ -34,7 +34,7 @@ function App() {
   const fetchResults = async () => {
     try {
       const response = await axios.get(
-        "http://127.0.0.1:8000/results"
+        "https://websitescrapper-ekio.onrender.com/results"
       );
 
       setAllResults(response.data);
