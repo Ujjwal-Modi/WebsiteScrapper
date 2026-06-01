@@ -181,7 +181,7 @@ Returns all previously enriched company profiles.
 ### Clone Repository
 
 ```bash
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/Ujjwal-Modi/WebsiteScrapper
 cd WebsiteScrapper
 ```
 
@@ -292,7 +292,7 @@ Passionate about:
 
 ### Connect With Me
 
-* LinkedIn: YOUR_LINKEDIN_URL
+* LinkedIn: https://www.linkedin.com/in/ujjawalmodi/
 * GitHub: https://github.com/Ujjwal-Modi
 
 ---
