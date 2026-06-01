@@ -1,6 +1,8 @@
 # 🚀 AI-Powered Prospect Research Agent
 
 [![Frontend](https://img.shields.io/badge/Frontend-Live-success)](https://website-scrapper-umber.vercel.app/)
+[![Backend](https://img.shields.io/badge/Backend-Live-success)](https://websitescrapper-ekio.onrender.com)
+[![API Docs](https://img.shields.io/badge/API-Swagger-blue)](https://websitescrapper-ekio.onrender.com/docs)
 [![React](https://img.shields.io/badge/React.js-Frontend-61DAFB)](https://react.dev/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-Python-green)](https://fastapi.tiangolo.com/)
 [![Groq](https://img.shields.io/badge/Groq-LLM-orange)](https://groq.com/)
@@ -15,6 +17,16 @@ An AI-powered web application that automates company research by scraping busine
 
 🔗 **Live Application:**
 https://website-scrapper-umber.vercel.app/
+
+### Backend API
+
+🔗 **API Base URL:**
+https://websitescrapper-ekio.onrender.com
+
+### API Documentation
+
+🔗 **Swagger UI:**
+https://websitescrapper-ekio.onrender.com/docs
 
 ---
 
