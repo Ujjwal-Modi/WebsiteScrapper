@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 function App() {
   const [websiteName, setWebsiteName] = useState("");
@@ -19,7 +20,7 @@ function App() {
         {
           website_name: websiteName,
           url: url,
-        }
+        },
       );
 
       setResult(response.data);
@@ -34,7 +35,7 @@ function App() {
   const fetchResults = async () => {
     try {
       const response = await axios.get(
-        "https://websitescrapper-ekio.onrender.com/results"
+        "https://websitescrapper-ekio.onrender.com/results",
       );
 
       setAllResults(response.data);
@@ -45,88 +46,74 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "30px" }}>
+    <div className="container">
       <h1>Prospect Research Agent</h1>
 
       <hr />
 
       <h2>Enrich Company</h2>
 
-      <input
-        type="text"
-        placeholder="Website Name"
-        value={websiteName}
-        onChange={(e) =>
-          setWebsiteName(e.target.value)
-        }
-        style={{
-          width: "300px",
-          marginBottom: "10px",
-          display: "block",
-        }}
-      />
+      <div className="form-section">
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Company Name"
+            value={websiteName}
+            onChange={(e) => setWebsiteName(e.target.value)}
+          />
+        </div>
 
-      <input
-        type="text"
-        placeholder="Company URL"
-        value={url}
-        onChange={(e) =>
-          setUrl(e.target.value)
-        }
-        style={{
-          width: "300px",
-          marginBottom: "10px",
-          display: "block",
-        }}
-      />
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Company URL"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+          />
+        </div>
 
-      <button onClick={enrichCompany}>
-        {loading ? "Researching..." : "Enrich"}
-      </button>
+        <button onClick={enrichCompany} disabled={loading}>
+          {loading ? "Researching..." : "Enrich Company"}
+        </button>
+
+        {loading && (
+          <>
+            <div className="spinner"></div>
+            <p className="loading-text">Researching company...</p>
+          </>
+        )}
+      </div>
 
       {result && (
-        <div
-          style={{
-            marginTop: "20px",
-            border: "1px solid gray",
-            padding: "15px",
-          }}
-        >
+        <div className="result-card">
           <h3>{result.company_name}</h3>
 
           <p>
-            <strong>Address:</strong>{" "}
-            {result.address}
+            <strong>Address:</strong> {result.address}
           </p>
 
           <p>
-            <strong>Phone:</strong>{" "}
-            {result.mobile_number}
+            <strong>Phone:</strong> {result.mobile_number}
           </p>
 
           <p>
-            <strong>Emails:</strong>{" "}
-            {result.mail?.join(", ")}
+            <strong>Emails:</strong> {result.mail?.join(", ")}
           </p>
 
           <p>
-            <strong>Core Service:</strong>{" "}
-            {result.core_service}
+            <strong>Core Service:</strong> {result.core_service}
           </p>
 
           <p>
-            <strong>Target Customer:</strong>{" "}
-            {result.target_customer}
+            <strong>Target Customer:</strong> {result.target_customer}
           </p>
 
           <p>
-            <strong>Pain Point:</strong>{" "}
-            {result.probable_pain_point}
+            <strong>Pain Point:</strong> {result.probable_pain_point}
           </p>
 
           <p>
-            <strong>Outreach:</strong>{" "}
-            {result.outreach_opener}
+            <strong>Outreach:</strong> {result.outreach_opener}
           </p>
         </div>
       )}
@@ -135,41 +122,30 @@ function App() {
 
       <h2>Results</h2>
 
-      <button onClick={fetchResults}>
-        Show All Results
-      </button>
+      <button onClick={fetchResults}>Show All Results</button>
 
       {allResults.length > 0 && (
-        <table
-          border="1"
-          cellPadding="10"
-          style={{
-            marginTop: "20px",
-            width: "100%",
-          }}
-        >
-          <thead>
-            <tr>
-              <th>Company</th>
-              <th>Service</th>
-              <th>Target Customer</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {allResults.map((item, index) => (
-              <tr key={index}>
-                <td>{item.company_name}</td>
-
-                <td>{item.core_service}</td>
-
-                <td>
-                  {item.target_customer}
-                </td>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Service</th>
+                <th>Target Customer</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {allResults.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.company_name}</td>
+                  <td>{item.core_service}</td>
+                  <td>{item.target_customer}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
